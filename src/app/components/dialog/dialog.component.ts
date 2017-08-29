@@ -43,6 +43,11 @@ buildForm(){
 		'year': [null, Validators.compose([Validators.required, Validators.pattern('([01]?[0-9]|2[0-3]):[0-5][0-9]')])],
 		'thumbnail': new FormControl()
 	});
+
+	// Set inital value from image before any events.
+	this.reactiveForm.patchValue({
+		thumbnail: this.thumbnail
+	});
 	// watch for changes and validate
 	this.reactiveForm.valueChanges.subscribe(data => this.validateForm());
 }
