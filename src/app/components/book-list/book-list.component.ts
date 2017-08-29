@@ -46,7 +46,6 @@ editButtonClicked(id) {
     //Loop throught array find matching id and change the values. keeping the id intact.
     for (var i = 0; i < this.books.length; ++i) {
         if (this.books[i].id === id) {
-          console.log(this.books[i])
           this.books[i].title = res.title;
           this.books[i].author = res.author;
           this.books[i].year = res.year;

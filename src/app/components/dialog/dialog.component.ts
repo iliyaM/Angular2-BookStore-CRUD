@@ -98,11 +98,10 @@ thumbnail:string = 'batman';
 //Select value by value from slider and populate thumbnail variable with name.
 //Patch value of hidden input with value from thumbnail variable.
 onInputChange(event: any) {
+	this.thumbnail = this.thumbnails[event.value];
 	this.reactiveForm.patchValue({
 		thumbnail: this.thumbnail
 	});
-	
-	this.thumbnail = this.thumbnails[event.value];
 }
 
 // On confirm pass the object from ng submit to dialog
