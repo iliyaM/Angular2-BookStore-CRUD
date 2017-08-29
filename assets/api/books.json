@@ -4,27 +4,27 @@
     "title":"do you even lift bro",
     "author":"Bain the Pain",
     "year": "10:27 2008",
-    "image": "batman"
+    "image": "bain"
   },
     {
     "id": 2,
-    "title":"Who is that guy anyway",
+    "title":"i am awesome",
     "author":"Batman",
-    "year": "22:00 2016",
-    "image": "batman"
+    "year": "22:00",
+    "image": "batman2"
   },
     {
     "id": 3,
-    "title":"How to win an interview with just a smile",
-    "author": "Joker",
-    "year": "11:15 2017",
-    "image": "batman"
+    "title":"Why so serious",
+    "author": "Ha Ha Ha",
+    "year": "11:15",
+    "image": "joker"
   },
     {
     "id": 4,
     "title":"Na na na its batman",
     "author":"Batman",
-    "year": " 09:12 1964",
+    "year": " 09:12",
     "image": "batman"
   }
 ]
