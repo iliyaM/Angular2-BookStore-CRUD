@@ -1,0 +1,115 @@
+<h2 md-dialog-title class="primary">Dialog Form</h2>
+
+<!-- Form Template when edit button clicked with values from item -->
+<div class="formEdit" *ngIf="data.editTemplate">
+	<img md-card-image src="assets/{{thumbnail}}.jpg">
+
+	<span>Choose Your Image</span>
+	<md-slider min="0" max="5" step="1" value="0" (input)="onInputChange($event)"></md-slider>
+
+	<md-dialog-content>
+		<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit(reactiveForm.value)">
+
+			<!-- Title -->
+			<md-input-container>
+				<input [formControl]="reactiveForm.controls['title']"
+					mdInput
+					type="text"
+					placeholder="{{data.book.title}}"
+					>
+				<md-hint *ngIf="titleError" [ngStyle]="{'color': 'red'}" align="start">{{titleError}}</md-hint>
+			</md-input-container>
+
+			<!-- Date -->
+			<md-input-container>
+				<input
+					[formControl]="reactiveForm.controls['year']"
+					mdInput 
+					type="text" 
+					placeholder="{{data.book.year}}"
+					>
+				<md-hint *ngIf="yearError" [ngStyle]="{'color': 'red'}" align="start">{{yearError}}</md-hint>
+			</md-input-container>
+
+			<!-- Author -->
+			<md-input-container>
+				<input
+					[formControl]="reactiveForm.controls['author']"
+					mdInput
+					type="text" 
+					placeholder="{{data.book.author}}"
+					>
+				<md-hint *ngIf="authorError" [ngStyle]="{'color': 'red'}" align="start">{{authorError}}</md-hint>
+			</md-input-container>
+
+			<!-- Action buttons -->
+			<md-dialog-actions>
+				<button md-raised-button color="primary" type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+				<button md-raised-button color="primary" type="button" (click)="dialogRef.close()">Cancel</button>
+			</md-dialog-actions>
+
+			<input 
+				[formControl]="reactiveForm.controls['thumbnail']"
+				type="hidden"
+				value=""
+				name="thumbnail"
+				/>
+		</form>
+	</md-dialog-content>
+</div>
+
+<!-- Form Template when create new button is clicked -->
+<div class="formCreateNew" *ngIf="!data.editTemplate">
+
+	<img md-card-image src="assets/{{thumbnail}}.jpg">
+	<span>Choose Your Image</span>
+	<md-slider min="0" max="5" step="1" value="0" (input)="onInputChange($event)"></md-slider>
+
+
+	<md-dialog-content>
+		<form [formGroup]="reactiveForm" (ngSubmit)="onSubmit(reactiveForm.value)">
+
+			<md-input-container>
+				<input [formControl]="reactiveForm.controls['title']"
+					mdInput
+					type="text"
+					placeholder="Enter title (this title will strip of special characters and uppercase itself)"
+					>
+				<md-hint *ngIf="titleError" [ngStyle]="{'color': 'red'}" align="start">{{titleError}}</md-hint>
+			</md-input-container>
+
+			<md-input-container>
+				<input
+					[formControl]="reactiveForm.controls['year']"
+					mdInput 
+					type="text" 
+					placeholder="Enter a time from 00:00 to 23:59"
+					>
+				<md-hint *ngIf="yearError" [ngStyle]="{'color': 'red'}" align="start">{{yearError}}</md-hint>
+			</md-input-container>
+
+			<md-input-container>
+				<input
+					[formControl]="reactiveForm.controls['author']"
+					mdInput
+					type="text" 
+					placeholder="Enter authors name"
+					>
+				<md-hint *ngIf="authorError" [ngStyle]="{'color': 'red'}" align="start">{{authorError}}</md-hint>
+			</md-input-container>
+			
+			<md-dialog-actions>
+				<button md-raised-button color="primary" type="submit" [disabled]="!reactiveForm.valid">Submit</button>
+				<button md-raised-button color="primary" type="button" (click)="dialogRef.close()">Cancel</button>
+			</md-dialog-actions>
+
+
+			<input 
+				[formControl]="reactiveForm.controls['thumbnail']"
+				type="hidden"
+				value=""
+				name="thumbnail"
+				/>
+		</form>
+	</md-dialog-content>
+</div>

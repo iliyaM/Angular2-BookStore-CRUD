@@ -1,0 +1,33 @@
+div.layout {
+	padding: 0 calc((100% - 1200px) / 2);
+	display: flex;
+	flex: 1;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+img {
+	min-height: 200px;
+}
+
+.mat-card {
+	width: 200px;
+	margin: 1em;
+}
+
+.mat-card h4 {
+	margin: 0;
+	font-size: 1em;
+	font-weight: 400;
+}
+
+.mat-card-content {
+	min-height: 70px;
+}
+
+.addButton {
+	position: absolute;
+	bottom: 10%;
+	left: 50%;
+	transform: translateX(-50%);
+}

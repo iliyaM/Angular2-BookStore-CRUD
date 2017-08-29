@@ -1,0 +1,11 @@
+a.logo {
+	display: block;
+	width: 50%;
+	margin: 1em auto;
+}
+
+a.logo img {
+	display: block;
+	width: 50%;
+	margin: 0 auto;
+}

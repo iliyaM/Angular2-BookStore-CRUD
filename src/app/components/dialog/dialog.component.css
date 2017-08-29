@@ -1,0 +1,18 @@
+.mat-input-container {
+	display: block;
+	margin-bottom: 1em;
+}
+
+.mat-dialog-content {
+	height: 80%;
+}
+
+button {
+	display: inline-block;
+	margin-right: 1em;
+
+}
+
+img {
+	height: 400px;
+}
