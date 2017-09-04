@@ -51,10 +51,15 @@ buildForm(){
 		'thumbnail': new FormControl()
 	});
 
-	// Set inital value from image before any events.
-	this.reactiveForm.patchValue({
-		thumbnail: this.thumbnail
-	});
+	// set initial value if edit template
+	if (this.isEditTemplate) {
+		this.reactiveForm.patchValue({
+			author: this.data.book.author,
+			title: this.data.book.title,
+			year: this.data.book.year,
+			thumbnail: this.thumbnail
+		});
+	}
 	// watch for changes and validate
 	this.reactiveForm.valueChanges.subscribe(data => this.validateForm());
 }

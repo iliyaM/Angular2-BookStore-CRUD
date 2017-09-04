@@ -15,7 +15,6 @@
 				<input [formControl]="reactiveForm.controls['title']"
 					mdInput
 					type="text"
-					value="{{data.book.title}}"
 					placeholder="Enter a title" 
 					>
 				<md-hint *ngIf="titleError" [ngStyle]="{'color': 'red'}" align="start">{{titleError}}</md-hint>
@@ -27,7 +26,6 @@
 					[formControl]="reactiveForm.controls['year']"
 					mdInput 
 					type="text" 
-					value="{{data.book.year}}"
 					placeholder="Enter a year YYYY-MM-DD" 
 					>
 				<md-hint *ngIf="yearError" [ngStyle]="{'color': 'red'}" align="start">{{yearError}}</md-hint>
@@ -39,7 +37,6 @@
 					[formControl]="reactiveForm.controls['author']"
 					mdInput
 					type="text" 
-					value="{{data.book.author}}"
 					placeholder="Enter an authors name" 
 					>
 				<md-hint *ngIf="authorError" [ngStyle]="{'color': 'red'}" align="start">{{authorError}}</md-hint>
