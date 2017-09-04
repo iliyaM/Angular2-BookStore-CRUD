@@ -57,7 +57,7 @@ buildForm(){
 			author: this.data.book.author,
 			title: this.data.book.title,
 			year: this.data.book.year,
-			thumbnail: this.thumbnail
+			thumbnail: this.data.book.image
 		});
 	}
 	// watch for changes and validate
@@ -102,10 +102,10 @@ validateForm() {
 	//Setting up error messages for year
 	if (year.invalid && year.dirty) {	
 		if (year.invalid && year.dirty) {
-			this.yearError = 'Please specify time';
+			this.yearError = 'Please enter data like YYYY-MM-DD';
 		}
 		if (year.errors['pattern']) {
-			this.yearError = 'Time should be in valid time format 00:00 to 23:59';
+			this.yearError = 'Date should be in valid date format YYYY-MM-DD';
 		}
 	}
 }
