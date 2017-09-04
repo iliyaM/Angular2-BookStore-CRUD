@@ -16,6 +16,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/share';
+import { TitleCustomPipePipe } from './title-custom-pipe.pipe';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import 'rxjs/add/operator/share';
     AppComponent,
     BookListComponent,
     DialogComponent,
+    TitleCustomPipePipe,
   ],
   entryComponents: [
     DialogComponent

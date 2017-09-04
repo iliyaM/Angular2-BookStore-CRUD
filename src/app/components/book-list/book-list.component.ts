@@ -2,6 +2,7 @@ import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { BooksService} from '../../shared/services/books.service';
 import { MdDialog } from '@angular/material';
 import { DialogComponent } from '../dialog/dialog.component';
+import { Book } from '../../shared/interfaces/book';
 
 @Component({
   selector: 'app-book-list',
@@ -10,7 +11,7 @@ import { DialogComponent } from '../dialog/dialog.component';
 })
 
 export class BookListComponent implements OnInit {
-books:Array<any>;
+books:Array<Book>;
 error: string;
 
 constructor(private booksService: BooksService, public dialog: MdDialog ) {}
@@ -66,7 +67,8 @@ createNew() {
        height: '90%',
        width: '600px',
        data: {
-          editTemplate: false
+         book: {},
+         editTemplate: false
        }
      });
     //Gets back result object.

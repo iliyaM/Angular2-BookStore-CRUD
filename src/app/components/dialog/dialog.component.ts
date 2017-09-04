@@ -18,6 +18,8 @@ yearError: string;
 books:Array<Book>;
 error: string;
 
+isEditTemplate:boolean = this.data.editTemplate;
+
 constructor (
 	@Inject(MD_DIALOG_DATA) public data: any,
 	public dialogRef:MdDialogRef<DialogComponent>,
@@ -40,7 +42,7 @@ buildForm(){
 	this.reactiveForm = this.fb.group({
 		'author': [null, Validators.required],
 		'title': ['', Validators.compose([Validators.required, Validators.pattern('[\\w\\-\\s\\/]+')])],
-		'year': [null, Validators.compose([Validators.required, Validators.pattern('([01]?[0-9]|2[0-3]):[0-5][0-9]')])],
+		'year': [null, Validators.compose([Validators.required, Validators.pattern(/^(\d?\d?\d?\d)\-(0?\d|1[12])\-(0?[1-9]|[12]\d|3[01])$/)])],
 		'thumbnail': new FormControl()
 	});
 
@@ -68,9 +70,11 @@ validateForm() {
 	}
 
 	//Runs and checks if title exists
-	let result = this.books.filter((book) => book.title.toLowerCase().trim() === title.value.toLowerCase().trim());
-	if (result.length >= 1) {
-		title.setErrors({titleValid: true});
+	if (!this.isEditTemplate) {
+		let result = this.books.filter((book) => book.title.toLowerCase().trim() === title.value.toLowerCase().trim());
+		if (result.length >= 1) {
+			title.setErrors({titleValid: true});
+		}
 	}
 
 	if (title.invalid && title.dirty) {
@@ -111,7 +115,6 @@ onInputChange(event: any) {
 
 // On confirm pass the object from ng submit to dialog
 onSubmit(value: any) {
-	value.title = this.booksService.formatString(value.title);
 	this.dialogRef.close(value);
 }
 

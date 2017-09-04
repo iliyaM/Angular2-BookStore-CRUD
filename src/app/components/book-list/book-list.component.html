@@ -1,35 +1,42 @@
-<div class="layout">
-	<md-card *ngFor="let book of books" md-colors="{border-color: 'primary-600'}">
-		<!-- Main image -->
-		<img md-card-image src="assets/{{book.image}}.jpg" alt="{{book.title}}">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3" *ngFor="let book of books">
+			<md-card md-colors="{border-color: 'primary-600'}">
+				<!-- Main image -->
+				<img md-card-image src="assets/{{book.image}}.jpg" alt="{{book.title}}">
 
-		<!-- Title of the book -->
-		<!-- Running format string function before displaying book.title -->
-		<md-card-title>
-			<h4>{{this.booksService.formatString(book.title)}}</h4>
-		</md-card-title>
+				<!-- Title of the book -->
+				<!-- Running format string function before displaying book.title -->
+				<md-card-title>
+					<!-- <h4>{{this.booksService.formatString(book.title)}}</h4> -->
+					<h4>{{book.title | titleCustomPipe}}</h4>
+				</md-card-title>
 
-		<!-- Content with author and year -->
-		<md-card-content>
-			<p>{{book.author}}</p>
-			<p>{{book.year}}</p>
-		</md-card-content>
-		
-		<!-- Action buttons delete and edit -->
-		<md-card-footer>
-			<button
-				md-icon-button
-				(click)="editButtonClicked(book.id)">
-				<i class="material-icons">&#xE254;</i>
-				</button>
-			<button
-				md-icon-button
-				(click)="deleteBook(book.id)">
-				<i class="material-icons">&#xE92B;</i>
-			</button>
-		</md-card-footer>
-	</md-card>
+				<!-- Content with author and year -->
+				<md-card-content>
+					<p>{{book.author}}</p>
+					<p>{{book.year | date: 'medium'}}</p>
+				</md-card-content>
+				
+				<!-- Action buttons delete and edit -->
+				<md-card-footer>
+					<button
+						md-icon-button
+						(click)="editButtonClicked(book.id)">
+						<i class="material-icons">&#xE254;</i>
+						</button>
+					<button
+						md-icon-button
+						(click)="deleteBook(book.id)">
+						<i class="material-icons">&#xE92B;</i>
+					</button>
+				</md-card-footer>
+			</md-card>
+		</div>
+	</div>
 
 	<!-- Add book Button -->
-	<button md-fab class="addButton" (click)="createNew()"><i class="material-icons">add</i></button>
+	<div class="button_container">
+		<button md-fab class="addButton" (click)="createNew()"><i class="material-icons">add</i></button>
+	</div>
 </div>

@@ -1,18 +1,5 @@
-div.layout {
-	padding: 0 calc((100% - 1200px) / 2);
-	display: flex;
-	flex: 1;
-	flex-wrap: wrap;
-	align-items: stretch;
-}
-
-img {
-	min-height: 200px;
-}
-
 .mat-card {
-	width: 200px;
-	margin: 1em;
+	min-height: 450px;
 }
 
 .mat-card h4 {
@@ -25,9 +12,11 @@ img {
 	min-height: 70px;
 }
 
-.addButton {
-	position: absolute;
-	bottom: 10%;
-	left: 50%;
-	transform: translateX(-50%);
+div.button_container {
+	padding: 1em 0;
+}
+
+div.button_container button {
+	display: block;
+	margin: 0 auto;
 }
