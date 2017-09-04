@@ -69,7 +69,7 @@ createNew() {
        data: {
          book: {},
          editTemplate: false
-       }
+        }
      });
     //Gets back result object.
     addDialog.afterClosed().subscribe(res => {

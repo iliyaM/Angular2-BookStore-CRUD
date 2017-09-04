@@ -33,6 +33,11 @@ ngOnInit() {
 	// Subscribe to books
 	this.booksService
 		.getBooks().subscribe(res => this.books = res);
+
+	//Set up initial value for thumbnail if in edit mode.
+	if (this.isEditTemplate) {
+			this.thumbnail = this.data.book.image;
+		}
 }
 
 /**
@@ -103,6 +108,7 @@ validateForm() {
 
 thumbnails:Array<string> = ['batman','bain','batman2','catwoman','joker','lexluthor'];
 thumbnail:string = 'batman';
+
 
 //Select value by value from slider and populate thumbnail variable with name.
 //Patch value of hidden input with value from thumbnail variable.

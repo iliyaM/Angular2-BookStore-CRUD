@@ -6,6 +6,7 @@ import { BooksService} from './shared/services/books.service';
 import { BookListComponent } from './components/book-list/book-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { BookComponent } from './components/book/book.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import 'hammerjs';
@@ -25,6 +26,7 @@ import { TitleCustomPipePipe } from './title-custom-pipe.pipe';
     BookListComponent,
     DialogComponent,
     TitleCustomPipePipe,
+    BookComponent,
   ],
   entryComponents: [
     DialogComponent
